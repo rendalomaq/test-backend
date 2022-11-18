@@ -41,10 +41,26 @@ def test_get_average_product_price():
 
 @pytest.mark.django_db
 def test_product_list_view(client):
-    prod1 = generic_product.make(name="prod1")
+    prod1 = generic_product.make(
+        name="prod1",
+        price=10,
+        stock=2,
+        category=generic_category.make(name="cat1"),
+    )
     response = client.get("/main/products/")
     assert response.status_code == 200
-    assert response.json()[0]["name"] == prod1.name
+    assert response.json() == [
+        {
+            "id": prod1.id,
+            "name": "prod1",
+            "price": 10,
+            "stock": 2,
+            "category": {
+                "id": prod1.category.id,
+                "name": "cat1",
+            }
+        }
+    ]
 
 
 # TODO rendalo: test crear producto
