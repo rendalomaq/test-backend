@@ -47,5 +47,10 @@ def test_product_list_view(client):
     assert response.json()[0]["name"] == prod1.name
 
 
-# TODO rendalo:
+# TODO rendalo: test crear producto
 
+
+
+
+
+# TODO postulante: test en algo que use todo
