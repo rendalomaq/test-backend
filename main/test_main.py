@@ -63,7 +63,27 @@ def test_product_list_view(client):
     ]
 
 
-# TODO rendalo: test crear producto
+@pytest.mark.django_db
+def test_product_post_view(client):
+    category = generic_category.make(name="cat1")
+    data = {
+        "name": "prod1",
+        "price": 10,
+        "stock": 2,
+        "category": category.id
+    }
+    response = client.post(
+        "/main/products/",
+        data=data, headers={"Content-Type": "application/json"}
+    )
+    assert response.status_code == 201
+    assert response.json() == {
+        "id": 1,
+        "name": "prod1",
+        "price": 10,
+        "stock": 2,
+        "category": 1
+    }
 
 
 
