@@ -1,3 +1,4 @@
 env
 *.py[co]
 db.sqlite3
+.coverage
