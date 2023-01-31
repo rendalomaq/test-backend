@@ -9,7 +9,7 @@
 
 ## Tests
 
-Para ejecutar los tests se sugiere el siguiente comando `docker-compose run --rm django pytest`
+Para ejecutar los tests se sugiere el siguiente comando `docker-compose run --rm django pytest --cov=.`
 
 ## TODO
 
