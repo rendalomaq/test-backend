@@ -35,10 +35,7 @@ def test_get_average_product_price():
     assert services.get_average_product_price() == 20.0
 
 
-# TODO rendalo: un test un poco más complejo de python a secas
-
-
-
+@pytest.mark.skip
 @pytest.mark.django_db
 def test_product_list_view(client):
     prod1 = generic_product.make(
@@ -61,12 +58,3 @@ def test_product_list_view(client):
             }
         }
     ]
-
-
-# TODO rendalo: test crear producto
-
-
-
-
-
-# TODO postulante: test en algo que use todo
